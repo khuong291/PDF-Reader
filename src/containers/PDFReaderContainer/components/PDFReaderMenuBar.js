@@ -27,13 +27,31 @@ class PDFReaderMenuBar extends React.Component {
       const chosenFile = {
         url: URL.createObjectURL(e.target.files[0]),
         name: e.target.files[0].name,
-        data: formData
+        data: formData,
+        selected: true
       };
       this.props.onSelect(chosenFile);
+      const unselectedFiles = [...files];
+      unselectedFiles.forEach((file, index) => {
+        files[index].selected = false;
+      });
       this.setState({
-        files: [chosenFile, ...files]
+        files: [chosenFile, ...unselectedFiles]
       });
     }
+  };
+
+  onSelectItem = selectedIndex => {
+    const files = [...this.state.files];
+    files.forEach((file, index) => {
+      files[index].selected = false;
+      if (index === selectedIndex) {
+        files[index].selected = true;
+      }
+    });
+    this.setState({
+      files
+    });
   };
 
   render() {
@@ -44,7 +62,13 @@ class PDFReaderMenuBar extends React.Component {
         <h4 className="menu-files">FILES</h4>
         <div className="menu-list">
           {files.map((file, index) => {
-            return <PDFReaderMenuItem key={index} file={file} selected />;
+            return (
+              <PDFReaderMenuItem
+                key={index}
+                file={file}
+                onSelectItem={() => this.onSelectItem(index)}
+              />
+            );
           })}
         </div>
         <div className="menu-upload" onClick={this.chooseFile}>
