@@ -9,9 +9,16 @@ class ReaderZoneContainer extends React.Component {
   };
 
   onSelect = chosenFile => {
-    this.setState({
-      chosenFile
-    });
+    this.setState(
+      {
+        chosenFile: undefined
+      },
+      () => {
+        this.setState({
+          chosenFile
+        });
+      }
+    );
   };
 
   render() {

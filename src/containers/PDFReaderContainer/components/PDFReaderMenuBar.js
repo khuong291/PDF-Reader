@@ -47,6 +47,7 @@ class PDFReaderMenuBar extends React.Component {
       files[index].selected = false;
       if (index === selectedIndex) {
         files[index].selected = true;
+        this.props.onSelect(files[index]);
       }
     });
     this.setState({

@@ -8,7 +8,6 @@ const PDFReaderDisplayBox = props => (
       <img src={icon} alt="logo" />
       <h2>{props.chosenFile.name}</h2>
     </div>
-
     <embed
       src={props.chosenFile.url}
       alt="pdf"
