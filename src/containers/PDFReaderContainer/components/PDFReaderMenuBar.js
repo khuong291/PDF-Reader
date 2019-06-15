@@ -26,8 +26,10 @@ class PDFReaderMenuBar extends React.Component {
       formData.append("file", e.target.files[0]);
       const chosenFile = {
         url: URL.createObjectURL(e.target.files[0]),
-        name: e.target.files[0].name
+        name: e.target.files[0].name,
+        data: formData
       };
+      this.props.onSelect(chosenFile);
       this.setState({
         files: [chosenFile, ...files]
       });
