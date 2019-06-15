@@ -1,0 +1,37 @@
+$menu-item-highlited-background-color: rgba(88, 147, 212, 0.2)
+$menu-item-height: 82px
+    
+.menu-item
+    margin: 20px auto
+    width: 344px
+    height: 82px
+    cursor: pointer
+
+    img 
+        margin: 18px 21.5px 48.92px 35.54px
+
+    div 
+        margin: -101px 20px 3px 70px
+        font-family: Poppins
+        font-style: normal
+        font-weight: 600
+        font-size: 22px
+        line-height: 31px
+        h3 
+            color: #FFFFFF
+            overflow: hidden
+            white-space: nowrap
+        h4 
+            color: #A070DC
+            font-size: 17px
+            margin-top: -24px
+            overflow: hidden 
+            white-space: nowrap   
+
+.menu-item-highlighted
+    @extend .menu-item
+    background-color: $menu-item-highlited-background-color
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+    border-radius: 15px
+
+
